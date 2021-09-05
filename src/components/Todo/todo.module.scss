@@ -1,0 +1,45 @@
+.todo {
+  width: 450px;
+  height: 600px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background: #f4f4f4;
+  box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 41px;
+
+}
+
+.todoList {
+
+}
+
+.todoList-item {
+  &__line {
+
+  }
+}
+
+.toolbox {
+  &__button {
+
+    &_extended {
+
+    }
+  }
+}
+
+.green {
+
+}
+
+.yellow {
+
+}
+
+.red {
+
+}
