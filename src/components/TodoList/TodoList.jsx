@@ -2,10 +2,11 @@ import React from "react";
 
 import {TodoListItem} from "../TodoListItem/TodoListItem";
 import classes from './TodoList.module.scss';
+import {connect} from "react-redux";
 
-export const TodoList = (props) => {
+const TodoList = (props) => {
 
-    const {todos} = props;
+    const { todos } = props;
 
     return (
         <div className={classes.todoList}>
@@ -24,3 +25,13 @@ export const TodoList = (props) => {
         </div>
     )
 }
+
+function mapStateToProps(state) {
+    return { todos: state.todos }
+}
+
+function mapDispatchToProps(dispatch) {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
