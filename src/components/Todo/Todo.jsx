@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import classes from './todo.module.scss';
 
@@ -7,10 +7,20 @@ import {TodoList} from "../TodoList/TodoList";
 import {Input} from "../../Ui/Input/Input";
 
 
-export const Todo = () => (
-    <div className={classes.todo}>
-        <Heading title='Your favorite todo!' />
-        <TodoList />
-        <Input />
-    </div>
-)
+export const Todo = (props) => {
+
+    const [todos, setTodos] = useState([
+        {task: 'Wake up', isImportant: false, isDone: false},
+        {task: 'Drink Coffee', isImportant: false, isDone: false},
+        {task: 'Learn React', isImportant: false, isDone: false},
+        {task: 'Repeat', isImportant: false, isDone: false},
+    ]);
+
+    return (
+        <div className={classes.todo}>
+            <Heading title='Your favorite todo!'/>
+            <TodoList todos={todos}/>
+            <Input/>
+        </div>
+    )
+}
