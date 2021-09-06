@@ -14,7 +14,13 @@ export const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'MARK_TASK_AS_COMPLETE':
-            return state;
+            const idx = state.todos.findIndex(todo => todo.id === action.payload);
+            const newArr = [...state.todos];
+            newArr[idx].isDone = true;
+            return {
+                ...state,
+                todos: newArr
+            };
 
         case 'MARK_TASK_AS_IMPORTANT':
             return state;
