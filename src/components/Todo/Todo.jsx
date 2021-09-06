@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { connect } from "react-redux";
 
 import classes from './todo.module.scss';
 
@@ -7,20 +8,25 @@ import {TodoList} from "../TodoList/TodoList";
 import {Input} from "../../Ui/Input/Input";
 
 
-export const Todo = (props) => {
 
-    const [todos, setTodos] = useState([
-        {task: 'Wake up', isImportant: false, isDone: true},
-        {task: 'Drink Coffee', isImportant: false, isDone: false},
-        {task: 'Learn React', isImportant: true, isDone: false},
-        {task: 'Repeat', isImportant: false, isDone: false},
-    ]);
+
+const Todo = (props) => {
 
     return (
         <div className={classes.todo}>
             <Heading title='Your favorite todo!'/>
-            <TodoList todos={todos}/>
+            <TodoList todos={props.todos}/>
             <Input/>
         </div>
     )
 };
+
+function mapStateToProps(state) {
+    return { todos: state.todos }
+}
+
+function mapDispatchToProps(dispatch) {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);
