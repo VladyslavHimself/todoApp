@@ -7,8 +7,6 @@ export const TodoList = (props) => {
 
     const {todos} = props;
 
-    console.log(todos);
-
     return (
         <div className={classes.todoList}>
             {
@@ -16,12 +14,13 @@ export const TodoList = (props) => {
                     return (
                         <TodoListItem
                             key={idx}
-                            isImportant={false}
                             task={todo.task}
+                            isImportant={todo.isImportant}
+                            isDone={todo.isDone}
                         />
                     );
                 })
             }
         </div>
     )
-};
+}
