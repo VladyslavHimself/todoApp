@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+.heading {
+
+  position: absolute;
+  top: 5%;
+  left: 50%;
+
+  transform: translate(-50%, -5%);
+
+  font-family: 'Comic Neue', cursive;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 32px;
+}

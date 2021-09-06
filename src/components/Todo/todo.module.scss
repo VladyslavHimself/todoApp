@@ -10,36 +10,13 @@
   background: #f4f4f4;
   box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.1);
   border-radius: 41px;
+  position: relative;
+  Input {
+    position: absolute;
+    top: 93%;
+    left: 50%;
 
-}
-
-.todoList {
-
-}
-
-.todoList-item {
-  &__line {
-
+    transform: translate(-50%);
   }
 }
 
-.toolbox {
-  &__button {
-
-    &_extended {
-
-    }
-  }
-}
-
-.green {
-
-}
-
-.yellow {
-
-}
-
-.red {
-
-}

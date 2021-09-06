@@ -1,0 +1,46 @@
+
+.toolbox {
+
+  display: flex;
+
+  margin-top: -3px;
+
+  &__button {
+
+    width: 20px;
+    &_extended { width: 44px };
+
+    &, &_extended {
+      margin-left: 5px;
+      height: 20px;
+      border-radius: 50px;
+
+      cursor: pointer;
+    }
+  }
+}
+
+.green {
+  background: #7AE291;
+  transition: .5s ease;
+  &:hover {
+    background: #72D086;
+  }
+}
+
+.yellow {
+  background: #E9EC4C;
+  transition: .5s ease;
+  &:hover {
+    background: #DEE14E;
+  }
+}
+
+.red {
+  background: #E76E6E;
+  transition: .5s ease;
+
+  &:hover {
+    background: #D26868;
+  }
+}
