@@ -1,10 +1,12 @@
 import React from "react";
 
 import classes from './TodoListItem.module.scss';
-import {Toolbox} from "../Toolbox/Toolbox";
+import Toolbox from "../Toolbox/Toolbox";
 
 export const TodoListItem = (props) => {
-    const { task, isImportant, isDone } = props;
+    const { id, task, isImportant, isDone } = props;
+
+    console.log(id);
 
     return (
         <div className={classes['todoList-item']}>
@@ -17,7 +19,7 @@ export const TodoListItem = (props) => {
                     {
                         !isImportant ? null : <span className={classes['important']}>!!!</span>
                     }
-                <Toolbox />
+                <Toolbox taskId={id} />
             </div>
 
             <hr className={classes['todoList-item__line']} />

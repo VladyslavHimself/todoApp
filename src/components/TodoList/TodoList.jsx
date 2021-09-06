@@ -15,9 +15,11 @@ const TodoList = (props) => {
                     return (
                         <TodoListItem
                             key={idx}
+                            id={todo.id}
                             task={todo.task}
                             isImportant={todo.isImportant}
                             isDone={todo.isDone}
+
                         />
                     );
                 })
@@ -30,8 +32,4 @@ function mapStateToProps(state) {
     return { todos: state.todos }
 }
 
-function mapDispatchToProps(dispatch) {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+export default connect(mapStateToProps)(TodoList);

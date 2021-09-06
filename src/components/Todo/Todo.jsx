@@ -3,8 +3,10 @@ import React from "react";
 import classes from './todo.module.scss';
 
 import {Heading} from "../Heading/Heading";
-import TodoList from "../TodoList/TodoList";
 import {Input} from "../../Ui/Input/Input";
+
+import TodoList from "../TodoList/TodoList";
+
 
 
 
