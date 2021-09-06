@@ -16,3 +16,18 @@
     font-size: 18px;
   }
 }
+
+.important {
+  min-width: 50px;
+  height: 20px;
+  padding: 0px 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  background: #D26868;
+  color: #f4f4f4;
+  border-radius: 25px;
+}

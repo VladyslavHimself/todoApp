@@ -5,11 +5,10 @@ import classes from './TodoList.module.scss';
 
 export const TodoList = () => (
     <div className={classes.todoList}>
-        <TodoListItem />
-        <TodoListItem />
-        <TodoListItem />
-        <TodoListItem />
-        <TodoListItem />
+        <TodoListItem
+            isImportant={false}
+            task={'Wake up'}
+        />
 
     </div>
 );
