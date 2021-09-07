@@ -5,7 +5,7 @@ import React from 'react';
 import classes from './App.module.scss';
 
 // components
-import {Todo} from "./components/Todo/Todo";
+import Todo from "./components/Todo/Todo";
 
 function App() {
     return (

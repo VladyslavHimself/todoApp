@@ -1,15 +1,27 @@
 import React from "react";
-
-import {Heading} from "../Heading/Heading";
-import {Input} from "../../Ui/Input/Input";
-import TodoList from "../TodoList/TodoList";
+import {connect} from 'react-redux';
 
 import classes from './todo.module.scss';
 
-export const Todo = (props) => (
+import {Heading} from "../Heading/Heading";
+import Input from "../../Ui/Input/Input";
+import TodoList from "../TodoList/TodoList";
+
+
+const Todo = (props) => (
     <div className={classes.todo}>
         <Heading title='Your favorite todo!'/>
-        <TodoList/>
+        {
+            props.todos.length > 0 ? <TodoList/> : <p style={{opacity: '.6'}}>You can add tasks by typing the input below</p>
+        }
         <Input/>
     </div>
 );
+
+function mapStateToProps(state) {
+    return {
+        todos: state.todos
+    }
+}
+
+export default connect(mapStateToProps)(Todo);

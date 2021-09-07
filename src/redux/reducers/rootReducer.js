@@ -2,10 +2,7 @@ import update from 'react-addons-update';
 
 const initialState = {
     todos: [
-        {id: 0, task: 'Wake up', isImportant: false, isDone: false},
-        {id: 1, task: 'Drink Coffee', isImportant: false, isDone: false},
-        {id: 2, task: 'Learn React', isImportant: true, isDone: false},
-        {id: 3, task: 'Repeat', isImportant: false, isDone: false},
+
     ]
 }
 
@@ -38,6 +35,12 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 todos: state.todos.filter(todo => todo.id !== action.payload)
             };
+
+        case 'ADD_DATA_TO_LIST':
+            return {
+                ...state,
+                todos: [action.payload, ...state.todos],
+            }
 
         default: return state;
     }
