@@ -39,7 +39,7 @@ export const rootReducer = (state = initialState, action) => {
         case 'ADD_DATA_TO_LIST':
             return {
                 ...state,
-                todos: [action.payload, ...state.todos],
+                todos: [ ...state.todos, action.payload],
             }
 
         default: return state;
