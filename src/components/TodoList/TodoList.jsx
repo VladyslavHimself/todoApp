@@ -1,13 +1,10 @@
 import React from "react";
-
+import {connect} from "react-redux";
 import {TodoListItem} from "../TodoListItem/TodoListItem";
 import classes from './TodoList.module.scss';
-import {connect} from "react-redux";
 
 const TodoList = (props) => {
-
     const { todos } = props;
-
     return (
         <div className={classes.todoList}>
             {
