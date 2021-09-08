@@ -1,0 +1,25 @@
+.Login-group {
+  width: 300px;
+
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  .btn {
+    width: 70px;
+    height: 20px;
+
+    border: none;
+
+    background: #7AE291;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a {
+    line-height: 1.2rem;
+    font-size: 12px;
+  }
+}

@@ -1,11 +1,10 @@
-import update from 'react-addons-update';
-
 const initialState = {
-    todos: [
-
-    ]
+    todos: [],
+    user: {
+        email: null,
+        password: null,
+    },
 }
-
 
 export const rootReducer = (state = initialState, action) => {
 

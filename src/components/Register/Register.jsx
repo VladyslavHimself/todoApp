@@ -1,20 +1,12 @@
 import React from "react";
+import classes from "./Register.module.scss";
+import AuthGroup from "../Auth-group/Auth-group";
+import LoginGroup from "../Login-group/LoginGroup";
 
 export const Register = () => (
-    <div className='Auth'>
-        <div className="Auth__logo"> Register now!</div>
-        <div className="Auth-group">
-            <div className="Auth-group__input">
-                <input type="text" placeholder='Enter your e-mail'/>
-            </div>
-            <div className="Auth-group__input">
-                <input type="text" placeholder='Enter your password'/>
-            </div>
-        </div>
-        <div className="Login">
-            <button className='btn'>
-                Register
-            </button>
-        </div>
+    <div className={classes.Auth}>
+        <div className={classes.Auth__logo}> Register</div>
+        <AuthGroup />
+        <LoginGroup buttonValue={'Register!'} />
     </div>
-)
+);

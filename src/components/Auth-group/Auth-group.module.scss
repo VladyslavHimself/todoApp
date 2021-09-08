@@ -1,0 +1,13 @@
+.Auth-group {
+  width: 300px;
+  &__input {
+    width: inherit;
+    input {
+      width: inherit;
+      height: 30px;
+      &:last-child {
+        margin-top: 10px;
+      }
+    }
+  }
+}
