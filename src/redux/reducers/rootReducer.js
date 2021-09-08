@@ -41,6 +41,15 @@ export const rootReducer = (state = initialState, action) => {
                 todos: [ ...state.todos, action.payload],
             }
 
+        case 'SET_USER_DATA':
+            const newUserData = {...state.user};
+            newUserData.user = action.payload.email;
+            newUserData.password = action.payload.password;
+            return {
+                ...state,
+                user: newUserData,
+            }
+
         default: return state;
     }
 }

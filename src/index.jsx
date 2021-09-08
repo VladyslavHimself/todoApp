@@ -21,7 +21,6 @@ const app = (
             <App />
         </Provider>
     </Router>
-
 )
 
 ReactDOM.render(

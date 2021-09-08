@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import classes from './Input.module.scss';
 import {connect} from "react-redux";

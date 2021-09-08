@@ -5,23 +5,27 @@ import {connect} from "react-redux";
 
 const LoginGroup = (props) => (
     <div className={classes['Login-group']}>
-        <button className={classes.btn}>
-            {props.buttonValue}
+        <button className={classes.btn}
+                onClick={
+                    () => {
+                        props.setUserData(props.userData)
+                        props.login()
+                    }
+                }>
+            LogIn
         </button>
-        {
-            props.register
-            ?  <Link to='/register'>
-                    Register now!
-               </Link> : null
-        }
+
+        <Link to='/register'>
+            Register now!
+        </Link>
+
     </div>
 );
 
-function mapStateToProps(state) {
-
+function mapDispatchToProps(dispatch) {
+    return {
+        setUserData: (userData) => dispatch({type: 'SET_USER_DATA', payload: userData}),
+    }
 }
 
-function mapDispatchToProps(state) {
-
-}
-export default connect()(LoginGroup);
+export default connect(null, mapDispatchToProps)(LoginGroup);
