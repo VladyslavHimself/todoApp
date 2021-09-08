@@ -19,10 +19,13 @@ const Auth = () => {
         userData.password = e.target.value;
     }
 
-    const login = async () => {
-        console.log(userData);
-        const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c', userData);
-        console.log(response.data);
+    const loginRequest = async () => {
+
+        try {
+            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c', userData);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
 
@@ -35,7 +38,7 @@ const Auth = () => {
             />
             <LoginGroup
                 userData={userData}
-                login={login}
+                loginRequest={loginRequest}
             />
         </div>
     );

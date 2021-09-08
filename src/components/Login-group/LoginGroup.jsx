@@ -9,7 +9,7 @@ const LoginGroup = (props) => (
                 onClick={
                     () => {
                         props.setUserData(props.userData)
-                        props.login()
+                        props.loginRequest()
                     }
                 }>
             LogIn
