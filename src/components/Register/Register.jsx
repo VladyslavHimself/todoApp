@@ -3,7 +3,7 @@ import classes from './Register.module.scss';
 import {AuthGroup} from '../Auth-group/Auth-group';
 import LoginGroup from "../Login-group/LoginGroup";
 import axios from 'axios';
-
+import {Link} from "react-router-dom";
 
 const Register = () => {
 
@@ -45,6 +45,8 @@ const Register = () => {
                 userData={userData}
                 loginRequest={registerRequest}
             />
+
+
         </div>
     );
 };

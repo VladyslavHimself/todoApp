@@ -33,7 +33,6 @@ const Auth = () => {
         }
     }
 
-
     return (
         <div className={classes.Auth}>
             <div className={classes.Auth__logo}> Simple #TODO</div>
