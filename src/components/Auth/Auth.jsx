@@ -42,6 +42,8 @@ const Auth = () => {
                 getPasswordData = { e => getPasswordData(e) }
             />
             <LoginGroup
+                withRegisterField={true}
+                buttonName={'LogIn'}
                 userData={userData}
                 loginRequest={loginRequest}
             />

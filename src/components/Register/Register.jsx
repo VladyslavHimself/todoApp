@@ -40,6 +40,8 @@ const Register = () => {
                 getPasswordData = { e => getPasswordData(e) }
             />
             <LoginGroup
+                withRegisterField={false}
+                buttonName={'Register'}
                 userData={userData}
                 loginRequest={registerRequest}
             />

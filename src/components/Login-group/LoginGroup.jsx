@@ -1,7 +1,8 @@
 import React from 'react';
-import classes from './Login-group.module.scss';
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
+
+import classes from './Login-group.module.scss';
 
 const LoginGroup = (props) => (
     <div className={classes['Login-group']}>
@@ -12,12 +13,16 @@ const LoginGroup = (props) => (
                         props.loginRequest()
                     }
                 }>
-            LogIn
+            {props.buttonName}
         </button>
+        {
+            !props.withRegisterField ? null
 
-        <Link to='/register'>
-            Register now!
-        </Link>
+            : <Link to='/register'>
+                Register now!
+              </Link>
+        }
+
 
     </div>
 );
