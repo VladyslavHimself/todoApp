@@ -1,6 +1,7 @@
 import React from "react";
 import classes from './Toolbox.module.scss';
 import {connect} from "react-redux";
+import {deleteItemFromList, markAsComplete, markAsImportant} from "../../redux/actions/actions";
 
 const Toolbox = (props) => {
     const { taskId } = props;
@@ -31,9 +32,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        markAsComplete: taskId => dispatch({ type: 'MARK_TASK_AS_COMPLETE', payload: taskId}),
-        markAsImportant: taskId => dispatch({ type: 'MARK_TASK_AS_IMPORTANT', payload: taskId}),
-        deleteItemFromList: taskId => dispatch({ type: 'DELETE_TASK_FROM_LIST', payload: taskId}),
+        markAsComplete: taskId => dispatch(markAsComplete(taskId)),
+        markAsImportant: taskId => dispatch(markAsImportant(taskId)),
+        deleteItemFromList: taskId => dispatch(deleteItemFromList(taskId)),
     }
 }
 
