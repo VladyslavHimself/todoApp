@@ -21,8 +21,11 @@ const Auth = () => {
 
     const loginRequest = async () => {
 
+        const regKey = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c'
+
         try {
             const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c', userData);
+            console.log('success');
         } catch (e) {
             console.log(e);
         }

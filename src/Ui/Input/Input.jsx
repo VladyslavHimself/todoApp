@@ -31,7 +31,7 @@ const Input = (props) => {
 
 function mapStateToProps(state) {
     return {
-        todos: state.todos,
+        todos: state.todo.todos,
     }
 }
 
