@@ -20,8 +20,8 @@ const Todo = (props) => (
 
 function mapStateToProps(state) {
     return {
-        todos: state.todos
+        todos: state.todo.todos
     }
 }
 
-export default connect(mapStateToProps)(Todo);
+export default  connect(mapStateToProps)(Todo);

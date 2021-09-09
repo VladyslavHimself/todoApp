@@ -1,0 +1,17 @@
+.RegisterGroup {
+  button {
+    border: none;
+    padding: 10px 25px;
+    margin: 10px 0;
+
+    background: #E76E6E;
+    color: #f4f4f4;
+
+    transition: .5s ease;
+
+    cursor: pointer;
+    &:hover {
+      background: #D26868;
+    }
+  }
+}

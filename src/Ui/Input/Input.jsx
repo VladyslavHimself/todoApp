@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import classes from './Input.module.scss';
 import {connect} from "react-redux";
@@ -31,7 +31,7 @@ const Input = (props) => {
 
 function mapStateToProps(state) {
     return {
-        todos: state.todos,
+        todos: state.todo.todos,
     }
 }
 

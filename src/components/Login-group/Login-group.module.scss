@@ -1,0 +1,32 @@
+.Login-group {
+  width: 300px;
+
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  .btn {
+      border: none;
+      padding: 10px 25px;
+      margin: -10px 0;
+
+      background: #E76E6E;
+      color: #f4f4f4;
+
+      transition: .5s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+      cursor: pointer;
+      &:hover {
+        background: #D26868;
+      }
+    }
+
+  a {
+    line-height: 1.2rem;
+    font-size: 12px;
+  }
+}
