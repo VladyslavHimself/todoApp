@@ -1,9 +1,11 @@
 import React from 'react';
-import classes from './Auth.module.scss';
-import {AuthGroup} from "../Auth-group/Auth-group";
+import classes from './Register.module.scss';
+import {AuthGroup} from '../Auth-group/Auth-group';
 import LoginGroup from "../Login-group/LoginGroup";
 import axios from 'axios';
-const Auth = () => {
+
+
+const Register = () => {
 
     const userData = {
         email: null,
@@ -19,34 +21,30 @@ const Auth = () => {
         userData.password = e.target.value;
     }
 
-    const loginRequest = async () => {
-
-        const regKey = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c'
-
+    const registerRequest = async () => {
         try {
-            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c', userData);
-            console.log('success');
-            window.alert('LogIn successfully');
+            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c', userData);
+            window.alert('Registered successfully!');
         } catch (e) {
             console.log(e);
-            window.alert('Email or password does not exist!');
+            window.alert('Your account does not registered yet, try again...');
         }
     }
 
 
     return (
         <div className={classes.Auth}>
-            <div className={classes.Auth__logo}> Simple #TODO</div>
+            <div className={classes.Auth__logo}> Register </div>
             <AuthGroup
                 getLoginData = { e => getLoginData(e) }
                 getPasswordData = { e => getPasswordData(e) }
             />
             <LoginGroup
                 userData={userData}
-                loginRequest={loginRequest}
+                loginRequest={registerRequest}
             />
         </div>
     );
 };
 
-export default Auth;
+export default Register;

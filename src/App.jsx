@@ -8,6 +8,7 @@ import classes from './App.module.scss';
 import Todo from "./components/Todo/Todo";
 import Auth from "./components/Auth/Auth";
 import {NotFound} from "./components/NotFound/NotFound";
+import Register from "./components/Register/Register";
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
         <Switch>
             <Route path='/todo' component={Todo} />
             <Route path='/auth' component={Auth} />
-
+            <Route path='/register'  component={Register} />
             <Route exact path='/' component={Auth} />
             <Route component={NotFound} />
         </Switch>
