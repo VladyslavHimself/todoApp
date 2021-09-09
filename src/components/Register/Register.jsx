@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './Register.module.scss';
 import {AuthGroup} from '../Auth-group/Auth-group';
-import LoginGroup from "../Login-group/LoginGroup";
 import axios from 'axios';
-import {Link} from "react-router-dom";
+import RegisterGroup from "../RegisterGroup/RegisterGroup";
+import {connect} from "react-redux";
 
 const Register = () => {
 
@@ -25,6 +25,7 @@ const Register = () => {
         try {
             const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c', userData);
             window.alert('Registered successfully!');
+            window.location.href('/');
         } catch (e) {
             console.log(e);
             window.alert('Your account does not registered yet, try again...');
@@ -39,11 +40,9 @@ const Register = () => {
                 getLoginData = { e => getLoginData(e) }
                 getPasswordData = { e => getPasswordData(e) }
             />
-            <LoginGroup
-                withRegisterField={false}
-                buttonName={'Register'}
+            <RegisterGroup
                 userData={userData}
-                loginRequest={registerRequest}
+                registerRequest={registerRequest}
             />
 
 
@@ -51,4 +50,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default connect()(Register);

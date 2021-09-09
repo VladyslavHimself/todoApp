@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 // items
@@ -9,20 +9,34 @@ import Todo from "./components/Todo/Todo";
 import Auth from "./components/Auth/Auth";
 import {NotFound} from "./components/NotFound/NotFound";
 import Register from "./components/Register/Register";
+import {connect} from "react-redux";
 
-function App() {
-
+function App(props) {
     return (
     <div className={classes.app}>
-        <Switch>
-            <Route path='/todo' component={Todo} />
-            <Route path='/auth' component={Auth} />
-            <Route path='/register'  component={Register} />
-            <Route exact path='/' component={Auth} />
-            <Route component={NotFound} />
-        </Switch>
+            {
+                props.isLoggedIn ?
+                    <Switch>
+                        <Route path='/todo' component={Todo} />
+                        <Route exact path='/' component={Auth} />
+                        <Route component={NotFound} />
+                    </Switch>
+                    :
+                    <Switch>
+                        <Route path='/auth' component={Auth} />
+                        <Route path='/register'  component={Register} />
+                        <Route exact path='/' component={Auth} />
+                        <Route component={NotFound} />
+                    </Switch>
+            }
     </div>
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {
+        isLoggedIn: state.auth.user.isLoggedIn,
+    }
+}
+
+export default connect(mapStateToProps)(App);

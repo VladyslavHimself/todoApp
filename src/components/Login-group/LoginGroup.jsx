@@ -15,16 +15,10 @@ const LoginGroup = (props) => (
                 }>
             {props.buttonName}
         </button>
-        {
-            !props.withRegisterField
-                ? <Link to={'/auth'} >Back to Login</Link>
 
-                : <Link to='/register'>
-                    Register now!
-                  </Link>
-        }
-
-
+        <Link to='/register'>
+            Register now!
+        </Link>
     </div>
 );
 

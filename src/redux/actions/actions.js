@@ -20,3 +20,9 @@ export function deleteItemFromList(taskId) {
         payload: taskId,
     }
 }
+
+export function setLoginStatusToActive() {
+    return {
+        type: 'SET_LOGIN_STATUS_TO_ACTIVE',
+    }
+}
