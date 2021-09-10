@@ -10,6 +10,7 @@ import Auth from "./components/Auth/Auth";
 import {NotFound} from "./components/NotFound/NotFound";
 import Register from "./components/Register/Register";
 import {connect} from "react-redux";
+import {withRouter} from 'react-router-dom';
 
 function App(props) {
     return (
@@ -39,4 +40,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

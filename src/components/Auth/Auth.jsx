@@ -5,10 +5,11 @@ import LoginGroup from "../Login-group/LoginGroup";
 import axios from 'axios';
 import {setLoginStatusToActive} from "../../redux/actions/actions";
 import {connect} from "react-redux";
+import { useHistory } from 'react-router-dom';
 
  // #TODO Do redirect, using session storage & autologin via local storage
 const Auth = (props) => {
-
+    let history = useHistory();
     const userData = {
         email: null,
         password: null,
@@ -24,11 +25,12 @@ const Auth = (props) => {
     }
 
     const loginRequest = async () => {
+
         try {
             const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c', userData);
             if (response.status === 200) {
                 await props.setLoginStatusToActive();
-                await window.location.replace('/todo');
+                history.push('/todo');
             }
         } catch (e) {
             console.log(e);

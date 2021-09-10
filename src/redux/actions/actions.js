@@ -1,4 +1,9 @@
-import {DELETE_TASK_FROM_LIST, MARK_TASK_AS_COMPLETE, MARK_TASK_AS_IMPORTANT} from "./actionTypes";
+import {
+    DELETE_TASK_FROM_LIST,
+    MARK_TASK_AS_COMPLETE,
+    MARK_TASK_AS_IMPORTANT,
+    SET_LOGIN_STATUS_TO_ACTIVE
+} from "./actionTypes";
 
 export function markAsComplete(taskId) {
     return {
@@ -23,6 +28,6 @@ export function deleteItemFromList(taskId) {
 
 export function setLoginStatusToActive() {
     return {
-        type: 'SET_LOGIN_STATUS_TO_ACTIVE',
+        type: SET_LOGIN_STATUS_TO_ACTIVE,
     }
 }
