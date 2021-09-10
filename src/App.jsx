@@ -10,7 +10,9 @@ import Auth from "./components/Auth/Auth";
 import {NotFound} from "./components/NotFound/NotFound";
 import Register from "./components/Register/Register";
 import {connect} from "react-redux";
-import {withRouter} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
+import {Navigation} from "./components/Navigation/Navigation";
+
 
 function App(props) {
 
@@ -18,6 +20,7 @@ function App(props) {
     if (props.isLoggedIn || sessionStorage.getItem('isAuthenticated') === 'true') {
         return (
             <div className={classes.app}>
+                <Navigation/>
                 {
                     <Switch>
                         <Route path='/todo' component={Todo}/>
@@ -35,7 +38,7 @@ function App(props) {
                         <Route path='/auth' component={Auth}/>
                         <Route path='/register' component={Register}/>
                         <Route exact path='/' component={Auth}/>
-                        <Route component={NotFound}/>
+                        <Redirect to={'/'}/>
                     </Switch>
                 }
             </div>
@@ -49,4 +52,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(App));
+export default connect(mapStateToProps)(App);

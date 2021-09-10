@@ -8,16 +8,7 @@ import Input from "../../Ui/Input/Input";
 import TodoList from "../TodoList/TodoList";
 
 
-const Todo = (props) => {
-
-    useEffect(() => {
-        console.log('initialized');
-        if (sessionStorage.getItem('isAuthenticated') === 'true') {
-
-        }
-    }, );
-
-    return (
+const Todo = (props) => (
         <div className={classes.todo}>
             <Heading title='Your favorite todo!'/>
             {
@@ -25,11 +16,7 @@ const Todo = (props) => {
             }
             <Input/>
         </div>
-    );
-}
-
-
-
+);
 
 function mapStateToProps(state) {
     return {

@@ -31,7 +31,7 @@ const Auth = (props) => {
             if (response.status === 200) {
                 await props.setLoginStatusToActive();
 
-                sessionStorage.setItem('isAuthenticated', true);
+                sessionStorage.setItem('isAuthenticated', 'true');
 
                 history.push('/todo');
             }
