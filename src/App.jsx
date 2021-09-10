@@ -13,25 +13,34 @@ import {connect} from "react-redux";
 import {withRouter} from 'react-router-dom';
 
 function App(props) {
-    return (
-    <div className={classes.app}>
-            {
-                props.isLoggedIn ?
+
+
+    if (props.isLoggedIn || sessionStorage.getItem('isAuthenticated') === 'true') {
+        return (
+            <div className={classes.app}>
+                {
                     <Switch>
-                        <Route path='/todo' component={Todo} />
-                        <Route exact path='/' component={Auth} />
-                        <Route component={NotFound} />
+                        <Route path='/todo' component={Todo}/>
+                        <Route exact path='/' component={Auth}/>
+                        <Route component={NotFound}/>
                     </Switch>
-                    :
+                }
+            </div>
+        );
+    } else {
+        return (
+            <div className={classes.app}>
+                {
                     <Switch>
-                        <Route path='/auth' component={Auth} />
-                        <Route path='/register'  component={Register} />
-                        <Route exact path='/' component={Auth} />
-                        <Route component={NotFound} />
+                        <Route path='/auth' component={Auth}/>
+                        <Route path='/register' component={Register}/>
+                        <Route exact path='/' component={Auth}/>
+                        <Route component={NotFound}/>
                     </Switch>
-            }
-    </div>
-  );
+                }
+            </div>
+        );
+    }
 }
 
 function mapStateToProps(state) {

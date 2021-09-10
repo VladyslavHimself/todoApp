@@ -24,8 +24,8 @@ const Register = () => {
     const registerRequest = async () => {
         try {
             const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c', userData);
-            window.alert('Registered successfully!');
-            window.location.href('/');
+            await window.alert('Registered successfully!');
+            await window.location.replace('/');
         } catch (e) {
             console.log(e);
             window.alert('Your account does not registered yet, try again...');
