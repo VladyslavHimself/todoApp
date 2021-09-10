@@ -32,6 +32,7 @@ const Auth = (props) => {
                 await props.setLoginStatusToActive();
 
                 sessionStorage.setItem('isAuthenticated', 'true');
+                localStorage.setItem('isAuthenticated', 'true');
 
                 history.push('/todo');
             }

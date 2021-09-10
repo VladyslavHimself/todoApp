@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 // items
@@ -17,14 +17,14 @@ import {Navigation} from "./components/Navigation/Navigation";
 function App(props) {
 
 
-    if (props.isLoggedIn || sessionStorage.getItem('isAuthenticated') === 'true') {
+    if (props.isLoggedIn || sessionStorage.getItem('isAuthenticated') === 'true' || localStorage.getItem('isAuthenticated') === 'true') {
         return (
             <div className={classes.app}>
                 <Navigation/>
                 {
                     <Switch>
                         <Route path='/todo' component={Todo}/>
-                        <Route exact path='/' component={Auth}/>
+                        <Route exact path='/' component={Todo}/>
                         <Route component={NotFound}/>
                     </Switch>
                 }
