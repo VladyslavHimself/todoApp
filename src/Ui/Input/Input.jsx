@@ -1,19 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 
 import classes from './Input.module.scss';
 import {connect} from "react-redux";
 
 const Input = (props) => {
 
+    const [todoInput, setTodoInput] = useState('');
+
     const { todos } = props;
 
-    let inputData = '';
-
     const getDataFromInput = (e) => {
-        if (e.key === 'Enter' && inputData !== '') {
-            props.addDataToList(
-                {id: todos.length + 1, task: inputData, isImportant: false, isDone: false},
-            );
+
+        const todoDataTemplate = {
+            id: todos.length + 1,
+            task: todoInput,
+            isImportant: false,
+            isDone: false
+        };
+
+        if (e.key === 'Enter' && todoInput !== '') {
+            props.addDataToList(todoDataTemplate);
+            setTodoInput('');
         }
     }
 
@@ -22,7 +29,8 @@ const Input = (props) => {
             <input
                 type="text"
                 placeholder='Type here your #todo and press Enter'
-                onChange={ e => inputData = e.target.value}
+                value={todoInput}
+                onChange={ e => setTodoInput(e.target.value)}
                 onKeyDown={ e => getDataFromInput(e)}
             />
         </div>

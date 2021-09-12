@@ -9,6 +9,7 @@ import TodoList from "../TodoList/TodoList";
 
 
 const Todo = (props) => (
+
         <div className={classes.todo}>
             <Heading title='Your favorite todo!'/>
             {
