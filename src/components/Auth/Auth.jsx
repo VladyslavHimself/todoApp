@@ -32,10 +32,10 @@ const Auth = (props) => {
 
 
             if (response.status === 200) {
+                localStorage.setItem('user', response.data.email);
                 await props.setLoginStatusToActive();
 
                 localStorage.setItem('isAuthenticated', 'true');
-                localStorage.setItem('user', response.data.email);
                 history.push('/todo');
             }
         } catch (e) {

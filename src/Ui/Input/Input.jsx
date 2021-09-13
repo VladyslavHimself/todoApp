@@ -12,7 +12,8 @@ const Input = (props) => {
     const [todoInput, setTodoInput] = useState('');
 
     const postTodoItemToDB = (e) => {
-        db.collection('Todos').add({
+        db.collection(props.userId).add({
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             task: todoInput,
             isImportant: false,
             isDone: false

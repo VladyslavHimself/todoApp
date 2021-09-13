@@ -10,13 +10,15 @@ const TodoList = (props) => {
     const [TodoList, setTodoList] = useState([]);
 
     function getTodoListFromServer() {
-        return db.collection('Todos').onSnapshot((query) => {
+
+        db.collection(props.userId).orderBy("createdAt", "asc").onSnapshot((query) => {
             setTodoList(
                 query.docs.map((doc) => ({
                     id: doc.id,
                     task: doc.data().task,
                     isImportant: doc.data().isImportant,
                     isDone: doc.data().isDone,
+                    createdAt: doc.data().createdAt,
                 }))
             );
         });

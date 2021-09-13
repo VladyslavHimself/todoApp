@@ -4,20 +4,23 @@ import { db } from '../../firebase-config';
 
 
 const Toolbox = (props) => {
+
+    const userId = localStorage.getItem('user');
+
     const markTodoAsComplete = () => {
-        db.collection('Todos').doc(props.taskId).update({
+        db.collection(userId).doc(props.taskId).update({
             isDone: !props.isDone
         });
     }
 
     const markTodoAsImportant = () => {
-        db.collection('Todos').doc(props.taskId).update({
+        db.collection(userId).doc(props.taskId).update({
             isImportant: !props.isImportant
         })
     }
 
     const deleteTodo = () => {
-        db.collection('Todos').doc(props.taskId).delete();
+        db.collection(userId).doc(props.taskId).delete();
     }
 
     return (
