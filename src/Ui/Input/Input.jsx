@@ -19,19 +19,17 @@ const Input = (props) => {
         });
     };
 
-    const { todos } = props;
+
 
     const getDataFromInput = (e) => {
 
         const todoDataTemplate = {
-            id: todos.length + 1,
             task: todoInput,
             isImportant: false,
             isDone: false
         };
 
         if (e.key === 'Enter' && todoInput !== '') {
-            // props.addDataToList(todoDataTemplate);
             postTodoItemToDB(e);
             setTodoInput('');
         }
@@ -50,16 +48,4 @@ const Input = (props) => {
     )
 };
 
-function mapStateToProps(state) {
-    return {
-        todos: state.todo.todos,
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        addDataToList: (data) => dispatch({ type: 'ADD_DATA_TO_LIST', payload: data}),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Input);
+export default Input;

@@ -1,13 +1,9 @@
 import React from "react";
 import classes from './Toolbox.module.scss';
-import {deleteItemFromList, markAsComplete, markAsImportant} from "../../redux/actions/actions";
-
-
 import { db } from '../../firebase-config';
-import firebase from "firebase/compat";
+
 
 const Toolbox = (props) => {
-
     const markTodoAsComplete = () => {
         db.collection('Todos').doc(props.taskId).update({
             isDone: !props.isDone

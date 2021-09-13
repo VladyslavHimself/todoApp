@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {connect} from "react-redux";
 import {TodoListItem} from "../TodoListItem/TodoListItem";
 import classes from './TodoList.module.scss';
 
-import firebase from "firebase/compat";
 import { db } from '../../firebase-config';
 
 const TodoList = (props) => {
@@ -50,8 +48,4 @@ const TodoList = (props) => {
     )
 }
 
-function mapStateToProps(state) {
-    return { todos: state.todo.todos }
-}
-
-export default connect(mapStateToProps)(TodoList);
+export default TodoList;

@@ -1,5 +1,4 @@
 import React from "react";
-
 import classes from './Heading.module.scss';
 
 export const Heading = (props) => (
