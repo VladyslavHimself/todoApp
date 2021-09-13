@@ -8,7 +8,7 @@ const Todo = () => {
     const userId = localStorage.getItem('user');
     return (
         <div className={classes.todo}>
-            <Heading title='Your favorite todo!'/>
+            <Heading title='Your favorite todo!!'/>
             <TodoList userId={userId}/>
             <Input userId={userId}/>
         </div>
