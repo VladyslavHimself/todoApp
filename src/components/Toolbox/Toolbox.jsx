@@ -1,6 +1,5 @@
 import React from "react";
 import classes from './Toolbox.module.scss';
-import {connect} from "react-redux";
 import {deleteItemFromList, markAsComplete, markAsImportant} from "../../redux/actions/actions";
 
 
@@ -8,9 +7,6 @@ import { db } from '../../firebase-config';
 import firebase from "firebase/compat";
 
 const Toolbox = (props) => {
-
-    console.log(props.taskId)
-
 
     const markTodoAsComplete = () => {
         db.collection('Todos').doc(props.taskId).update({
@@ -28,7 +24,6 @@ const Toolbox = (props) => {
         db.collection('Todos').doc(props.taskId).delete();
     }
 
-    const { taskId } = props;
     return (
         <div className={classes.toolbox}>
             <div
@@ -50,16 +45,4 @@ const Toolbox = (props) => {
     );
 };
 
-function mapStateToProps(state) {
-    return {todos: state.todos}
-};
-
-function mapDispatchToProps(dispatch) {
-    return {
-        markAsComplete: taskId => dispatch(markAsComplete(taskId)),
-        markAsImportant: taskId => dispatch(markAsImportant(taskId)),
-        deleteItemFromList: taskId => dispatch(deleteItemFromList(taskId)),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbox);
+export default Toolbox;

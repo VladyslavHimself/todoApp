@@ -31,17 +31,20 @@ const TodoList = (props) => {
     return (
         <div className={classes.todoList}>
             {
-                TodoList.map((todo, idx) => {
-                    return (
-                        <TodoListItem
-                            key={idx}
-                            id={todo.id}
-                            task={todo.task}
-                            isImportant={todo.isImportant}
-                            isDone={todo.isDone}
-                        />
-                    );
-                })
+
+                TodoList.length > 0 ? TodoList.map((todo, idx) => {
+                        return (
+                            <TodoListItem
+                                key={idx}
+                                id={todo.id}
+                                task={todo.task}
+                                isImportant={todo.isImportant}
+                                isDone={todo.isDone}
+                            />
+                        );
+                    })
+                    : <p style={{opacity: '.5', fontSize: '16px'}}> For now, you haven't any tasks. Keep calm :)</p>
+
             }
         </div>
     )
