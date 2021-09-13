@@ -23,7 +23,7 @@ const TodoList = (props) => {
 
     useEffect(() => {
         getTodoListFromServer();
-    })
+    }, []);
 
     return (
         <div className={classes.todoList}>
