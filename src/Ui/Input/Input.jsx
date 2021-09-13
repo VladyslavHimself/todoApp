@@ -3,9 +3,21 @@ import React, {useState} from "react";
 import classes from './Input.module.scss';
 import {connect} from "react-redux";
 
+import { db } from '../../firebase-config';
+import firebase from "firebase/compat";
+
+
 const Input = (props) => {
 
     const [todoInput, setTodoInput] = useState('');
+
+    const postTodoItemToDB = (e) => {
+        db.collection('Todos').add({
+            task: todoInput,
+            isImportant: false,
+            isDone: false
+        });
+    };
 
     const { todos } = props;
 
@@ -19,7 +31,8 @@ const Input = (props) => {
         };
 
         if (e.key === 'Enter' && todoInput !== '') {
-            props.addDataToList(todoDataTemplate);
+            // props.addDataToList(todoDataTemplate);
+            postTodoItemToDB(e);
             setTodoInput('');
         }
     }

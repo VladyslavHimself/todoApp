@@ -3,24 +3,48 @@ import classes from './Toolbox.module.scss';
 import {connect} from "react-redux";
 import {deleteItemFromList, markAsComplete, markAsImportant} from "../../redux/actions/actions";
 
+
+import { db } from '../../firebase-config';
+import firebase from "firebase/compat";
+
 const Toolbox = (props) => {
+
+    console.log(props.taskId)
+
+
+    const markTodoAsComplete = () => {
+        db.collection('Todos').doc(props.taskId).update({
+            isDone: !props.isDone
+        });
+    }
+
+    const markTodoAsImportant = () => {
+        db.collection('Todos').doc(props.taskId).update({
+            isImportant: !props.isImportant
+        })
+    }
+
+    const deleteTodo = () => {
+        db.collection('Todos').doc(props.taskId).delete();
+    }
+
     const { taskId } = props;
     return (
         <div className={classes.toolbox}>
             <div
                  className={`${classes.toolbox__button} ${classes.red}`}
                  id='close'
-                 onClick={() => props.deleteItemFromList(taskId)}
+                 onClick={deleteTodo}
             />
             <div
                  className={`${classes.toolbox__button} ${classes.yellow}`}
                  id='important'
-                 onClick={() => props.markAsImportant(taskId)}
+                 onClick={markTodoAsImportant}
             />
             <div
                 className={`${classes.toolbox__button_extended} ${classes.green}`}
                 id='complete'
-                onClick={() => props.markAsComplete(taskId)}
+                onClick={markTodoAsComplete}
             />
         </div>
     );

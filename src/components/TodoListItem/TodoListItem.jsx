@@ -5,7 +5,7 @@ import Toolbox from "../Toolbox/Toolbox";
 
 export const TodoListItem = (props) => {
     const { id, task, isImportant, isDone } = props;
-
+    console.log(id);
     return (
         <div className={classes['todoList-item']}>
             <div className={classes['todoList-item__row']}>
@@ -17,7 +17,7 @@ export const TodoListItem = (props) => {
                     {
                         !isImportant ? null : <span className={classes['important']}>!!!</span>
                     }
-                <Toolbox taskId={id} />
+                <Toolbox taskId={id} isDone={isDone} isImportant={isImportant} />
             </div>
 
             <hr className={classes['todoList-item__line']} />
