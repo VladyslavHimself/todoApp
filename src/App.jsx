@@ -1,21 +1,15 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-
-// items
+import {connect} from "react-redux";
+import {Redirect} from 'react-router-dom';
 import classes from './App.module.scss';
-
-// components
 import Todo from "./components/Todo/Todo";
 import Auth from "./components/Auth/Auth";
 import {NotFound} from "./components/NotFound/NotFound";
 import Register from "./components/Register/Register";
-import {connect} from "react-redux";
-import {Redirect} from 'react-router-dom';
 import {Navigation} from "./components/Navigation/Navigation";
 
-
 function App(props) {
-
 
     if (props.isLoggedIn || sessionStorage.getItem('isAuthenticated') === 'true' || localStorage.getItem('isAuthenticated') === 'true') {
         return (

@@ -1,41 +1,47 @@
 import React from "react";
 import classes from './Toolbox.module.scss';
-import {connect} from "react-redux";
-import {deleteItemFromList, markAsComplete, markAsImportant} from "../../redux/actions/actions";
+import { db } from '../../firebase-config';
+
 
 const Toolbox = (props) => {
-    const { taskId } = props;
+
+    const userId = localStorage.getItem('user');
+
+    const markTodoAsComplete = () => {
+        db.collection(userId).doc(props.taskId).update({
+            isDone: !props.isDone
+        });
+    }
+
+    const markTodoAsImportant = () => {
+        db.collection(userId).doc(props.taskId).update({
+            isImportant: !props.isImportant
+        })
+    }
+
+    const deleteTodo = () => {
+        db.collection(userId).doc(props.taskId).delete();
+    }
+
     return (
         <div className={classes.toolbox}>
             <div
                  className={`${classes.toolbox__button} ${classes.red}`}
                  id='close'
-                 onClick={() => props.deleteItemFromList(taskId)}
+                 onClick={deleteTodo}
             />
             <div
                  className={`${classes.toolbox__button} ${classes.yellow}`}
                  id='important'
-                 onClick={() => props.markAsImportant(taskId)}
+                 onClick={markTodoAsImportant}
             />
             <div
                 className={`${classes.toolbox__button_extended} ${classes.green}`}
                 id='complete'
-                onClick={() => props.markAsComplete(taskId)}
+                onClick={markTodoAsComplete}
             />
         </div>
     );
 };
 
-function mapStateToProps(state) {
-    return {todos: state.todos}
-};
-
-function mapDispatchToProps(dispatch) {
-    return {
-        markAsComplete: taskId => dispatch(markAsComplete(taskId)),
-        markAsImportant: taskId => dispatch(markAsImportant(taskId)),
-        deleteItemFromList: taskId => dispatch(deleteItemFromList(taskId)),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbox);
+export default Toolbox;

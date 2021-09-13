@@ -1,19 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
 
 import classes from './Input.module.scss';
 import {connect} from "react-redux";
 
+import { db } from '../../firebase-config';
+import firebase from "firebase/compat";
+
+
 const Input = (props) => {
 
-    const { todos } = props;
+    const [todoInput, setTodoInput] = useState('');
 
-    let inputData = '';
+    const postTodoItemToDB = (e) => {
+        db.collection(props.userId).add({
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            task: todoInput,
+            isImportant: false,
+            isDone: false
+        });
+    };
+
+
 
     const getDataFromInput = (e) => {
-        if (e.key === 'Enter' && inputData !== '') {
-            props.addDataToList(
-                {id: todos.length + 1, task: inputData, isImportant: false, isDone: false},
-            );
+
+        const todoDataTemplate = {
+            task: todoInput,
+            isImportant: false,
+            isDone: false
+        };
+
+        if (e.key === 'Enter' && todoInput !== '') {
+            postTodoItemToDB(e);
+            setTodoInput('');
         }
     }
 
@@ -22,23 +41,12 @@ const Input = (props) => {
             <input
                 type="text"
                 placeholder='Type here your #todo and press Enter'
-                onChange={ e => inputData = e.target.value}
+                value={todoInput}
+                onChange={ e => setTodoInput(e.target.value)}
                 onKeyDown={ e => getDataFromInput(e)}
             />
         </div>
     )
 };
 
-function mapStateToProps(state) {
-    return {
-        todos: state.todo.todos,
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        addDataToList: (data) => dispatch({ type: 'ADD_DATA_TO_LIST', payload: data}),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Input);
+export default Input;

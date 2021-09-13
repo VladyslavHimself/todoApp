@@ -1,32 +1,53 @@
-import React from "react";
-import {connect} from "react-redux";
+import React, {useEffect, useState} from "react";
 import {TodoListItem} from "../TodoListItem/TodoListItem";
 import classes from './TodoList.module.scss';
 
+import { db } from '../../firebase-config';
+
 const TodoList = (props) => {
     const { todos } = props;
+
+    const [TodoList, setTodoList] = useState([]);
+
+    function getTodoListFromServer() {
+
+        db.collection(props.userId).orderBy("createdAt", "asc").onSnapshot((query) => {
+            setTodoList(
+                query.docs.map((doc) => ({
+                    id: doc.id,
+                    task: doc.data().task,
+                    isImportant: doc.data().isImportant,
+                    isDone: doc.data().isDone,
+                    createdAt: doc.data().createdAt,
+                }))
+            );
+        });
+    }
+
+    useEffect(() => {
+        getTodoListFromServer();
+    }, [])
+
     return (
         <div className={classes.todoList}>
             {
-                todos.map((todo, idx) => {
-                    return (
-                        <TodoListItem
-                            key={idx}
-                            id={todo.id}
-                            task={todo.task}
-                            isImportant={todo.isImportant}
-                            isDone={todo.isDone}
 
-                        />
-                    );
-                })
+                TodoList.length > 0 ? TodoList.map((todo, idx) => {
+                        return (
+                            <TodoListItem
+                                key={idx}
+                                id={todo.id}
+                                task={todo.task}
+                                isImportant={todo.isImportant}
+                                isDone={todo.isDone}
+                            />
+                        );
+                    })
+                    : <p style={{opacity: '.5', fontSize: '16px'}}> For now, you haven't any tasks. Keep calm :)</p>
+
             }
         </div>
     )
 }
 
-function mapStateToProps(state) {
-    return { todos: state.todo.todos }
-}
-
-export default connect(mapStateToProps)(TodoList);
+export default TodoList;

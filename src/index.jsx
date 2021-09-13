@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
+import {BrowserRouter as Router} from 'react-router-dom';
 import {applyMiddleware, compose, createStore} from "redux";
-
 import App from './App';
 import rootReducer from "./redux/rootReducer";
-
-import {BrowserRouter as Router} from 'react-router-dom';
-
+import firebase from "firebase/compat";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// redux debugger
 const composeEnhancers =
     typeof window === 'object' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
@@ -15,7 +16,7 @@ const composeEnhancers =
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware()));
 
-const app = (
+const application = (
     <Router>
         <Provider store={store}>
             <App />
@@ -24,6 +25,6 @@ const app = (
 )
 
 ReactDOM.render(
-    app,
+    application,
   document.getElementById('root'),
 );

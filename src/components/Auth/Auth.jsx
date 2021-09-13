@@ -28,12 +28,14 @@ const Auth = (props) => {
 
         try {
             const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAfdG1xt2XmdlzLTFUEwBQ6BezEdzqua9c', userData);
+
+
+
             if (response.status === 200) {
+                localStorage.setItem('user', response.data.email);
                 await props.setLoginStatusToActive();
 
-                sessionStorage.setItem('isAuthenticated', 'true');
                 localStorage.setItem('isAuthenticated', 'true');
-
                 history.push('/todo');
             }
         } catch (e) {
