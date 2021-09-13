@@ -44,3 +44,22 @@
     background: #D26868;
   }
 }
+
+
+@media (max-width: 525px) {
+  .toolbox {
+    &__button {
+      width: 15px;
+
+      &_extended {
+        width: 25px;
+      }
+
+      &, &_extended {
+        margin-left: 5px;
+        height: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+}

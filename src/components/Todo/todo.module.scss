@@ -20,3 +20,33 @@
   }
 }
 
+@media (max-width: 525px) {
+  .todo {
+    width: 300px;
+    height: 400px;
+
+    h1 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 12px !important;
+    }
+
+    Input {
+      top: 90%;
+    }
+  }
+}
+
+@media (max-height: 645px) {
+  //.todo {
+  //  height: 450px;
+  //}
+}
+
+@media (max-height: 645px) {
+  .todo {
+    height: 450px;
+  }
+}

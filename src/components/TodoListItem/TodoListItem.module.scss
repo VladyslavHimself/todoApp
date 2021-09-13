@@ -31,3 +31,12 @@
   color: #f4f4f4;
   border-radius: 25px;
 }
+
+
+@media (max-width: 525px) {
+  .todoList-item {
+    &__name {
+      font-size: 14px;
+    }
+  }
+}

@@ -11,3 +11,14 @@
     }
   }
 }
+
+
+@media (max-width: 420px) {
+  .Auth-group {
+    width: 250px;
+
+    input {
+      height: 20px;
+    }
+  }
+}

@@ -22,3 +22,19 @@
   background: #E76E6E;
   color: #f4f4f4;
 }
+
+@media (max-width: 525px) {
+  .Auth {
+    width: 400px;
+  }
+}
+
+@media (max-width: 420px) {
+  .Auth {
+    width: 300px;
+
+    &__logo {
+      font-size: 12px;
+    }
+  }
+}

@@ -8,3 +8,10 @@
 
   overflow: auto;
 }
+
+
+@media (max-height: 600px) {
+  .todoList {
+    max-height: 300px;
+  }
+}

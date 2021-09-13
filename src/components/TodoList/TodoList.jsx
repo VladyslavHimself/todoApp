@@ -5,10 +5,7 @@ import classes from './TodoList.module.scss';
 import { db } from '../../firebase-config';
 
 const TodoList = (props) => {
-    const { todos } = props;
-
     const [TodoList, setTodoList] = useState([]);
-
     function getTodoListFromServer() {
 
         db.collection(props.userId).orderBy("createdAt", "asc").onSnapshot((query) => {
@@ -26,7 +23,7 @@ const TodoList = (props) => {
 
     useEffect(() => {
         getTodoListFromServer();
-    }, [])
+    })
 
     return (
         <div className={classes.todoList}>

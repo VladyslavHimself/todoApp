@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 
 import classes from './Input.module.scss';
-import {connect} from "react-redux";
-
 import { db } from '../../firebase-config';
 import firebase from "firebase/compat";
 
@@ -23,12 +21,6 @@ const Input = (props) => {
 
 
     const getDataFromInput = (e) => {
-
-        const todoDataTemplate = {
-            task: todoInput,
-            isImportant: false,
-            isDone: false
-        };
 
         if (e.key === 'Enter' && todoInput !== '') {
             postTodoItemToDB(e);

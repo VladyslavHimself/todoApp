@@ -5,9 +5,7 @@ import Input from "../../Ui/Input/Input";
 import TodoList from "../TodoList/TodoList";
 
 const Todo = () => {
-
     const userId = localStorage.getItem('user');
-    console.log(userId);
     return (
         <div className={classes.todo}>
             <Heading title='Your favorite todo!'/>

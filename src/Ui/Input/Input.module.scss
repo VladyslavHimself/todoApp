@@ -7,4 +7,11 @@
     padding: 10px 25px;
     outline: none;
   }
+
+
+
+@media (max-width: 525px) {
+  input {
+    width:250px;}
+}
 }

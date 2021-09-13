@@ -5,9 +5,6 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {applyMiddleware, compose, createStore} from "redux";
 import App from './App';
 import rootReducer from "./redux/rootReducer";
-import firebase from "firebase/compat";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 // redux debugger
 const composeEnhancers =
     typeof window === 'object' &&

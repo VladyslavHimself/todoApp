@@ -6,14 +6,14 @@
   margin-top: 20px;
 
   .btn {
-      border: none;
-      padding: 10px 25px;
-      margin: -10px 0;
+    border: none;
+    padding: 10px 25px;
+    margin: -10px 0;
 
-      background: #E76E6E;
-      color: #f4f4f4;
+    background: #E76E6E;
+    color: #f4f4f4;
 
-      transition: .5s ease;
+    transition: .5s ease;
 
     display: flex;
     justify-content: center;
@@ -25,8 +25,18 @@
       }
     }
 
-  a {
-    line-height: 1.2rem;
-    font-size: 12px;
+    a {
+      line-height: 1.2rem;
+      font-size: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+  .Login-group {
+    width: 200px;
+    align-items: center;
+    .btn {
+      height: 15px;
+    }
   }
 }
