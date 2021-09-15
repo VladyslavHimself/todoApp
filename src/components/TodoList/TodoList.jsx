@@ -29,7 +29,7 @@ const TodoList = (props) => {
         <div className={classes.todoList}>
             {
 
-                TodoList.length > 0 ? TodoList.map((todo, idx) => {
+                TodoList.length ? TodoList.map((todo, idx) => {
                         return (
                             <TodoListItem
                                 key={idx}
@@ -40,7 +40,7 @@ const TodoList = (props) => {
                             />
                         );
                     })
-                    : <p style={{opacity: '.5', fontSize: '16px'}}> For now, you haven't any tasks. Keep calm :)</p>
+                    : <p style={{opacity: '.5', fontSize: '16px'}}> For now, you haven't any tasks. Keep calm :)</p> // Move style to TodoList.module.scss
 
             }
         </div>
