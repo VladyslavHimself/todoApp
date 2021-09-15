@@ -1,9 +1,7 @@
 import React, {useState} from "react";
-
 import classes from './Input.module.scss';
 import { db } from '../../firebase-config';
 import firebase from "firebase/compat";
-
 
 const Input = (props) => {
 
@@ -21,8 +19,7 @@ const Input = (props) => {
 
 
     const getDataFromInput = (e) => {
-
-        if (e.key === 'Enter' && todoInput !== '') {
+        if (e.key === 'Enter' && todoInput) { 
             postTodoItemToDB(e);
             setTodoInput('');
         }
